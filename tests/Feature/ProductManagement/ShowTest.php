@@ -12,17 +12,17 @@ class ShowTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function show_a_valid_product()
+    function show_a_valid_product()
     {
         $this->withoutExceptionHandling();
         $product = Product::factory()->create([
             'brand' => 'TONYMOLY',
             'title' => 'Test',
             'price' => 56000,
-            'discount_rate' => 79,
+            'discount_rate' => 56,
             'capacity' => '용량 200ml',
             'quantity' => 3,
-            'delivery_charge' => 2500,
+            'delivery' => 1,
         ]);
 
         $response = $this->json('GET', '/api/products/'.$product->id)
@@ -32,10 +32,11 @@ class ShowTest extends TestCase
             'brand' => 'TONYMOLY',
             'title' => 'Test',
             'price'=> '56,000',
-            'discount_rate' => 79,
+            'discount_rate' => 56,
+            'discount_price' => '24,600',
             'capacity' => '용량 200ml',
             'quantity' => 3,
-            'delivery_charge' => '2,500',
+            'delivery' => 1,
         ]);
     }
 }
