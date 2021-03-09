@@ -22,10 +22,6 @@ use Illuminate\Routing\Controller as BaseController;
  *      url=L5_SWAGGER_CONST_TEST_HOST,
  *      description="테스트 서버"
  *  )
- *  @OA\Server(
- *      url=L5_SWAGGER_CONST_REAL_HOST,
- *      description="실 서버"
- *  )
  *
  */
 

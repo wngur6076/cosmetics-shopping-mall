@@ -2,11 +2,9 @@
 
 namespace Tests\Feature\CosmeticManagement;
 
-use Mockery;
 use Tests\TestCase;
 use App\Models\Review;
 use App\Models\Product;
-use App\Models\ConfirmationNumberGenerator;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -27,6 +25,7 @@ class IndexTest extends TestCase
             'capacity' => '용량 200ml',
             'quantity' => 3,
             'delivery' => 0,
+            'review_grade' => 4,
         ]);
         Review::factory()->create(['grade' => 5, 'product_id' => $product->id]);
         Review::factory()->create(['grade' => 3, 'product_id' => $product->id]);

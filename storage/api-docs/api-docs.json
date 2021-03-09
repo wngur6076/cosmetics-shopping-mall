@@ -11,10 +11,6 @@
         {
             "url": "http://localhost:8000/api",
             "description": "테스트 서버"
-        },
-        {
-            "url": "http://localhost:8000",
-            "description": "실 서버"
         }
     ],
     "paths": {
