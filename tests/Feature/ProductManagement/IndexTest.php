@@ -28,8 +28,8 @@ class IndexTest extends TestCase
             'quantity' => 3,
             'delivery' => 0,
         ]);
-        Review::factory()->create(['grade' => 5, 'product_id' => $product]);
-        Review::factory()->create(['grade' => 3, 'product_id' => $product]);
+        Review::factory()->create(['grade' => 5, 'product_id' => $product->id]);
+        Review::factory()->create(['grade' => 3, 'product_id' => $product->id]);
 
         $response = $this->json('GET', '/api/products');
 
@@ -49,7 +49,7 @@ class IndexTest extends TestCase
                     'review_count' => 2,
                     'review_grade' => 4,
                 ]
-            ], 'products_count' => 1]);
+            ]]);
     }
 
     /** @test */
@@ -69,7 +69,6 @@ class IndexTest extends TestCase
                 'meta' => [
                     'current_page', 'last_page', 'from', 'to', 'path', 'per_page', 'total'
                 ],
-                'products_count'
             ]);
     }
 

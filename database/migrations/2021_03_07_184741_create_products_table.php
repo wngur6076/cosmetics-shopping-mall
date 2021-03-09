@@ -24,6 +24,7 @@ class CreateProductsTable extends Migration
             $table->string('capacity');
             $table->integer('quantity');
             $table->integer('delivery');
+            $table->integer('review_grade')->default(0);
             $table->unsignedInteger('view_count')->default(0);
             $table->unsignedInteger('sold_count')->default(0);
             $table->timestamps();

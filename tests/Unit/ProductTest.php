@@ -39,9 +39,9 @@ class ProductTest extends TestCase
     {
         $product = Product::factory()->create();
 
-        Review::factory()->create(['grade' => 5, 'product_id' => $product]);
-        Review::factory()->create(['grade' => 4, 'product_id' => $product]);
-        Review::factory()->create(['grade' => 1, 'product_id' => $product]);
+        Review::factory()->create(['grade' => 5, 'product_id' => $product->id]);
+        Review::factory()->create(['grade' => 4, 'product_id' => $product->id]);
+        Review::factory()->create(['grade' => 1, 'product_id' => $product->id]);
 
         $this->assertEquals(3, $product->reviewGradeAverage());
     }

@@ -1,0 +1,95 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "화장품 쇼핑몰 클론코딩",
+        "contact": {
+            "email": "wngur6076@naver.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000/api",
+            "description": "테스트 서버"
+        },
+        {
+            "url": "http://localhost:8000",
+            "description": "실 서버"
+        }
+    ],
+    "paths": {
+        "/products": {
+            "get": {
+                "tags": [
+                    "상품 관련"
+                ],
+                "summary": "모든 상품 목록 가져오기",
+                "description": "모든 상품 목록을 가져온다.",
+                "operationId": "indexProduct",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "페이지 번호",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "페이지 수 (기본: 20)",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "정렬이름 (기본: created_at)",
+                        "explode": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "view_count",
+                                    "created_at",
+                                    "price",
+                                    "review_grade"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "description": "정렬주문 (기본: desc)",
+                        "explode": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "desc",
+                                    "asc"
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "응답 성공"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}

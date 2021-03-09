@@ -7,6 +7,28 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 
+/**
+ * @OA\Info(
+ *      title="화장품 쇼핑몰 클론코딩",
+ *      version="1.0.0",
+ *      @OA\Contact(
+ *          email="wngur6076@naver.com"
+ *      ),
+ * )
+ */
+
+/**
+ *  @OA\Server(
+ *      url=L5_SWAGGER_CONST_TEST_HOST,
+ *      description="테스트 서버"
+ *  )
+ *  @OA\Server(
+ *      url=L5_SWAGGER_CONST_REAL_HOST,
+ *      description="실 서버"
+ *  )
+ *
+ */
+
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
