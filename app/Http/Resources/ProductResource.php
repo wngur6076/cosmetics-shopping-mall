@@ -20,7 +20,7 @@ class ProductResource extends JsonResource
             'quantity' => $this->quantity,
             'delivery' => $this->delivery,
             'review_count' => $this->reviewCount(),
-            'review_grade' => $this->reviewGradeAverage(),
+            'review_grade' => $this->review_grade,
         ];
     }
 }
